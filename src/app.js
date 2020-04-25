@@ -6,6 +6,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 2020  //on heroku port will exists in env
 //define paths for Express config
 const publicDirPath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
@@ -84,7 +85,7 @@ res.render('404',{
 })
 })
 
-app.listen('2020',()=>{
-    console.log("You are listioning to http://localhost:2020 server");
+app.listen(port,()=>{
+    console.log("You are listioning to http://localhost:"+port+" server");
     
 })
